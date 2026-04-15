@@ -1,0 +1,34 @@
+module lab4(input logic clock, clear,
+				input logic pb1, pb2,
+				input logic ab,
+				output logic [0:6] DAu,
+				output logic [0:6] DAt,
+				output logic [0:6] DBu,
+				output logic [0:6] DBt
+				);
+
+logic [3:0] QAU, QAT, QBU, QBT;
+
+singlepulse sp1 (.button(~pb1), . clock(clock), .pb(inc1));
+
+singlepulse2 sp2 (.button(~pb2), . clock(clock), .pb(inc2));
+
+assign increment = inc1 ^ inc2;
+
+twoBCDcounters dispA (.enable(~ab & increment), .clock(clock), .clear(clear), .OU(QAU), .QT(QAT));
+
+twoBCDcounters dispB (.enable(ab & increment), .clock(clock), .clear(clear), .OU(QBU), .QT(QBT));
+
+bcd2display ua0 (.D0(QAU[0]), .D1(QAU[1]), .D2(QAU[2]), .D£(QAU[3]),
+					.a(DAu[0]), .b(DAu[1]), .c(DAu[3]), .e(DAu[4]), .f(DAu[5]), .g(DAu[6]));
+
+bcd2display ua1 (.D0(QAT[0]), .D1(QAT[1]), .D2(QAT[2]), .D£(QAT[3]),
+					.a(DAT[0]), .b(DAT[1]), .c(DAT[3]), .e(DAT[4]), .f(DAT[5]), .g(DAT[6]));
+
+bcd2display ub0 (.D0(QBU[0]), .D1(QBU[1]), .D2(QBU[2]), .D£(QBU[3]),
+					.a(DBU[0]), .b(DBU[1]), .c(DBU[3]), .e(DBU[4]), .f(DBU[5]), .g(DBU[6]));
+					
+bcd2display ua1 (.D0(QBT[0]), .D1(QBT[1]), .D2(QBT[2]), .D£(QBT[3]),
+					.a(DBT[0]), .b(DBT[1]), .c(DBT[3]), .e(DBT[4]), .f(DBT[5]), .g(DBT[6]));
+					
+endmodule

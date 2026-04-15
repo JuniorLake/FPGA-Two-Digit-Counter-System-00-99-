@@ -1,0 +1,294 @@
+|lab4
+clock => clock.IN4
+clear => clear.IN2
+pb1 => _.IN1
+pb2 => _.IN1
+ab => comb.IN1
+ab => comb.IN1
+DAu[6] << bcd2display:ua0.g
+DAu[5] << bcd2display:ua0.f
+DAu[4] << bcd2display:ua0.e
+DAu[3] << bcd2display:ua0.d
+DAu[2] << bcd2display:ua0.c
+DAu[1] << bcd2display:ua0.b
+DAu[0] << bcd2display:ua0.a
+DAt[6] << bcd2display:ua1.g
+DAt[5] << bcd2display:ua1.f
+DAt[4] << bcd2display:ua1.e
+DAt[3] << bcd2display:ua1.d
+DAt[2] << bcd2display:ua1.c
+DAt[1] << bcd2display:ua1.b
+DAt[0] << bcd2display:ua1.a
+DBu[6] << bcd2display:ub0.g
+DBu[5] << bcd2display:ub0.f
+DBu[4] << bcd2display:ub0.e
+DBu[3] << bcd2display:ub0.d
+DBu[2] << bcd2display:ub0.c
+DBu[1] << bcd2display:ub0.b
+DBu[0] << bcd2display:ub0.a
+DBt[6] << bcd2display:ub1.g
+DBt[5] << bcd2display:ub1.f
+DBt[4] << bcd2display:ub1.e
+DBt[3] << bcd2display:ub1.d
+DBt[2] << bcd2display:ub1.c
+DBt[1] << bcd2display:ub1.b
+DBt[0] << bcd2display:ub1.a
+
+
+|lab4|singlepulse:sp1
+clock => q3.CLK
+clock => q2.CLK
+clock => q1.CLK
+button => q1.DATAIN
+pb <= pb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|lab4|singlepulse2:sp2
+clock => q3.CLK
+clock => q2.CLK
+clock => q1.CLK
+clock => q0.CLK
+button => q0.DATAIN
+pb <= pb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|lab4|twoBCDcounters:dispA
+clock => clock.IN2
+clear => clear.IN2
+enable => enable.IN1
+QU[0] <= counter0to9:u0.Q
+QU[1] <= counter0to9:u0.Q
+QU[2] <= counter0to9:u0.Q
+QU[3] <= counter0to9:u0.Q
+QT[0] <= counter0to9:u1.Q
+QT[1] <= counter0to9:u1.Q
+QT[2] <= counter0to9:u1.Q
+QT[3] <= counter0to9:u1.Q
+
+
+|lab4|twoBCDcounters:dispA|counter0to9:u0
+clock => q3.CLK
+clock => q2.CLK
+clock => q1.CLK
+clock => q0.CLK
+enable => q0.OUTPUTSELECT
+enable => q1.OUTPUTSELECT
+enable => q2.OUTPUTSELECT
+enable => q3.OUTPUTSELECT
+clear_n => reset_n.IN1
+c9 <= c9.DB_MAX_OUTPUT_PORT_TYPE
+Q[0] <= q0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= q1.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= q2.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= q3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|lab4|twoBCDcounters:dispA|counter0to9:u1
+clock => q3.CLK
+clock => q2.CLK
+clock => q1.CLK
+clock => q0.CLK
+enable => q0.OUTPUTSELECT
+enable => q1.OUTPUTSELECT
+enable => q2.OUTPUTSELECT
+enable => q3.OUTPUTSELECT
+clear_n => reset_n.IN1
+c9 <= c9.DB_MAX_OUTPUT_PORT_TYPE
+Q[0] <= q0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= q1.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= q2.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= q3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|lab4|twoBCDcounters:dispB
+clock => clock.IN2
+clear => clear.IN2
+enable => enable.IN1
+QU[0] <= counter0to9:u0.Q
+QU[1] <= counter0to9:u0.Q
+QU[2] <= counter0to9:u0.Q
+QU[3] <= counter0to9:u0.Q
+QT[0] <= counter0to9:u1.Q
+QT[1] <= counter0to9:u1.Q
+QT[2] <= counter0to9:u1.Q
+QT[3] <= counter0to9:u1.Q
+
+
+|lab4|twoBCDcounters:dispB|counter0to9:u0
+clock => q3.CLK
+clock => q2.CLK
+clock => q1.CLK
+clock => q0.CLK
+enable => q0.OUTPUTSELECT
+enable => q1.OUTPUTSELECT
+enable => q2.OUTPUTSELECT
+enable => q3.OUTPUTSELECT
+clear_n => reset_n.IN1
+c9 <= c9.DB_MAX_OUTPUT_PORT_TYPE
+Q[0] <= q0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= q1.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= q2.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= q3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|lab4|twoBCDcounters:dispB|counter0to9:u1
+clock => q3.CLK
+clock => q2.CLK
+clock => q1.CLK
+clock => q0.CLK
+enable => q0.OUTPUTSELECT
+enable => q1.OUTPUTSELECT
+enable => q2.OUTPUTSELECT
+enable => q3.OUTPUTSELECT
+clear_n => reset_n.IN1
+c9 <= c9.DB_MAX_OUTPUT_PORT_TYPE
+Q[0] <= q0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= q1.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= q2.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= q3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|lab4|bcd2display:ua0
+A <= 7447:u1.OA
+D1 => 7447:u1.B
+D2 => 7447:u1.C
+D3 => 7447:u1.D
+D0 => 7447:u1.A
+B <= 7447:u1.OB
+C <= 7447:u1.OC
+D <= 7447:u1.OD
+E <= 7447:u1.OE
+F <= 7447:u1.OF
+G <= 7447:u1.OG
+
+
+|lab4|bcd2display:ua0|7447:u1
+OG <= 87.DB_MAX_OUTPUT_PORT_TYPE
+C => 25.IN0
+LTN => 25.IN1
+LTN => 27.IN1
+LTN => 29.IN1
+LTN => 13.IN5
+LTN => 38.IN3
+BIN => 37.IN0
+B => 27.IN0
+D => 14.IN0
+A => 29.IN0
+RBIN => 15.IN0
+OF <= 86.DB_MAX_OUTPUT_PORT_TYPE
+OE <= 85.DB_MAX_OUTPUT_PORT_TYPE
+RBON <= 13.DB_MAX_OUTPUT_PORT_TYPE
+OD <= 84.DB_MAX_OUTPUT_PORT_TYPE
+OC <= 83.DB_MAX_OUTPUT_PORT_TYPE
+OB <= 82.DB_MAX_OUTPUT_PORT_TYPE
+OA <= 81.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|lab4|bcd2display:ua1
+A <= 7447:u1.OA
+D1 => 7447:u1.B
+D2 => 7447:u1.C
+D3 => 7447:u1.D
+D0 => 7447:u1.A
+B <= 7447:u1.OB
+C <= 7447:u1.OC
+D <= 7447:u1.OD
+E <= 7447:u1.OE
+F <= 7447:u1.OF
+G <= 7447:u1.OG
+
+
+|lab4|bcd2display:ua1|7447:u1
+OG <= 87.DB_MAX_OUTPUT_PORT_TYPE
+C => 25.IN0
+LTN => 25.IN1
+LTN => 27.IN1
+LTN => 29.IN1
+LTN => 13.IN5
+LTN => 38.IN3
+BIN => 37.IN0
+B => 27.IN0
+D => 14.IN0
+A => 29.IN0
+RBIN => 15.IN0
+OF <= 86.DB_MAX_OUTPUT_PORT_TYPE
+OE <= 85.DB_MAX_OUTPUT_PORT_TYPE
+RBON <= 13.DB_MAX_OUTPUT_PORT_TYPE
+OD <= 84.DB_MAX_OUTPUT_PORT_TYPE
+OC <= 83.DB_MAX_OUTPUT_PORT_TYPE
+OB <= 82.DB_MAX_OUTPUT_PORT_TYPE
+OA <= 81.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|lab4|bcd2display:ub0
+A <= 7447:u1.OA
+D1 => 7447:u1.B
+D2 => 7447:u1.C
+D3 => 7447:u1.D
+D0 => 7447:u1.A
+B <= 7447:u1.OB
+C <= 7447:u1.OC
+D <= 7447:u1.OD
+E <= 7447:u1.OE
+F <= 7447:u1.OF
+G <= 7447:u1.OG
+
+
+|lab4|bcd2display:ub0|7447:u1
+OG <= 87.DB_MAX_OUTPUT_PORT_TYPE
+C => 25.IN0
+LTN => 25.IN1
+LTN => 27.IN1
+LTN => 29.IN1
+LTN => 13.IN5
+LTN => 38.IN3
+BIN => 37.IN0
+B => 27.IN0
+D => 14.IN0
+A => 29.IN0
+RBIN => 15.IN0
+OF <= 86.DB_MAX_OUTPUT_PORT_TYPE
+OE <= 85.DB_MAX_OUTPUT_PORT_TYPE
+RBON <= 13.DB_MAX_OUTPUT_PORT_TYPE
+OD <= 84.DB_MAX_OUTPUT_PORT_TYPE
+OC <= 83.DB_MAX_OUTPUT_PORT_TYPE
+OB <= 82.DB_MAX_OUTPUT_PORT_TYPE
+OA <= 81.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|lab4|bcd2display:ub1
+A <= 7447:u1.OA
+D1 => 7447:u1.B
+D2 => 7447:u1.C
+D3 => 7447:u1.D
+D0 => 7447:u1.A
+B <= 7447:u1.OB
+C <= 7447:u1.OC
+D <= 7447:u1.OD
+E <= 7447:u1.OE
+F <= 7447:u1.OF
+G <= 7447:u1.OG
+
+
+|lab4|bcd2display:ub1|7447:u1
+OG <= 87.DB_MAX_OUTPUT_PORT_TYPE
+C => 25.IN0
+LTN => 25.IN1
+LTN => 27.IN1
+LTN => 29.IN1
+LTN => 13.IN5
+LTN => 38.IN3
+BIN => 37.IN0
+B => 27.IN0
+D => 14.IN0
+A => 29.IN0
+RBIN => 15.IN0
+OF <= 86.DB_MAX_OUTPUT_PORT_TYPE
+OE <= 85.DB_MAX_OUTPUT_PORT_TYPE
+RBON <= 13.DB_MAX_OUTPUT_PORT_TYPE
+OD <= 84.DB_MAX_OUTPUT_PORT_TYPE
+OC <= 83.DB_MAX_OUTPUT_PORT_TYPE
+OB <= 82.DB_MAX_OUTPUT_PORT_TYPE
+OA <= 81.DB_MAX_OUTPUT_PORT_TYPE
+
+
