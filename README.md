@@ -95,6 +95,7 @@ Lab4/
 
 ## Demo (Optional)
 
+https://github.com/JuniorLake/FPGA-Two-Digit-Counter-System-00-99-/blob/main/2-digit%20BCD%20counter%20demo%20done%20video.mp4
 
 
 
