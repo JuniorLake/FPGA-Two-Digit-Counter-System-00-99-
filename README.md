@@ -72,14 +72,14 @@ The system is composed of multiple reusable modules:
 
 ## Project Structure
 
-Lab4/
-│── lab4.sv # Top-level design
-│── twoBCDcounters.sv # Two-digit counter module
-│── counter0to9.sv # Single digit BCD counter
-│── singlepulse.sv # Pulse generator (+1)
-│── singlepulse2.sv # Pulse generator (+2)
-│── bcd2display.bdf # Display conversion
-│── README.md
+Lab4
+- lab4.sv # Top-level design
+- twoBCDcounters.sv # Two-digit counter module
+- counter0to9.sv # Single digit BCD counter
+- singlepulse.sv # Pulse generator (+1)
+- singlepulse2.sv # Pulse generator (+2)
+- bcd2display.bdf # Display conversion
+- README.md
 
 
 ---
@@ -96,7 +96,9 @@ Lab4/
 ## Demo
 
 Demonstration of the FPGA system:
-<iframe width="560" height="315" src="https://youtube.com/shorts/Yx4hgbsz96s?feature=share" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Yx4hgbsz96s/0.jpg)](https://www.youtube.com/watch?v=Yx4hgbsz96s)
+
 
 
 
